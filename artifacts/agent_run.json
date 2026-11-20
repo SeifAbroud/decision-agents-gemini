@@ -1,0 +1,734 @@
+{
+ "mode": "offline",
+ "evidence": [
+  {
+   "id": "E1",
+   "tool": "overview",
+   "args": {},
+   "result": {
+    "periode_donnees": "2016-01-01 -> 2017-08-15",
+    "magasins": 54,
+    "familles": 33,
+    "ventes_28j": 2257805.1,
+    "ventes_28j_precedents": 2287368.5,
+    "croissance_28j_pct": -1.3,
+    "croissance_vs_annee_precedente_pct": 7.0,
+    "ventes_moyennes_par_jour_28j": 80635.9,
+    "transactions_28j": 210579,
+    "effet_jours_de_paie_pct": 5.2,
+    "correlation_hebdo_petrole_ventes": -0.2,
+    "part_lignes_en_promo_28j_pct": 10.6,
+    "ventes_hebdo_8_dernieres_semaines": [
+     553248.5,
+     591439.3,
+     560509.7,
+     585387.1,
+     560843.7,
+     557321.5,
+     597606.9,
+     526860.8
+    ]
+   }
+  },
+  {
+   "id": "E2",
+   "tool": "rank_stores",
+   "args": {
+    "metric": "growth_28d_pct",
+    "n": 3
+   },
+   "result": {
+    "metric": "growth_28d_pct",
+    "ordre": "décroissant",
+    "magasins": [
+     {
+      "store_nbr": 53,
+      "city": "Ambato",
+      "type": "A",
+      "cluster": 10,
+      "growth_28d_pct": 10.6,
+      "sales_28d": 37621.3
+     },
+     {
+      "store_nbr": 14,
+      "city": "Machala",
+      "type": "C",
+      "cluster": 11,
+      "growth_28d_pct": 9.8,
+      "sales_28d": 51657.0
+     },
+     {
+      "store_nbr": 50,
+      "city": "Guayaquil",
+      "type": "E",
+      "cluster": 10,
+      "growth_28d_pct": 7.0,
+      "sales_28d": 32490.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "E3",
+   "tool": "rank_stores",
+   "args": {
+    "metric": "growth_28d_pct",
+    "n": 3,
+    "ascending": true
+   },
+   "result": {
+    "metric": "growth_28d_pct",
+    "ordre": "croissant",
+    "magasins": [
+     {
+      "store_nbr": 54,
+      "city": "Machala",
+      "type": "C",
+      "cluster": 4,
+      "growth_28d_pct": -13.8,
+      "sales_28d": 20321.0
+     },
+     {
+      "store_nbr": 16,
+      "city": "Loja",
+      "type": "D",
+      "cluster": 11,
+      "growth_28d_pct": -13.6,
+      "sales_28d": 21428.5
+     },
+     {
+      "store_nbr": 34,
+      "city": "Guayaquil",
+      "type": "B",
+      "cluster": 12,
+      "growth_28d_pct": -10.6,
+      "sales_28d": 58453.9
+     }
+    ]
+   }
+  },
+  {
+   "id": "E4",
+   "tool": "underperforming_stores",
+   "args": {
+    "n": 3
+   },
+   "result": {
+    "definition": "écart des ventes 28 j vs médiane du cluster",
+    "magasins": [
+     {
+      "store_nbr": 31,
+      "city": "Manta",
+      "cluster": 17,
+      "sales_28d": 12139.1,
+      "cluster_median_28d": 61373.8,
+      "gap_vs_cluster_pct": -80.2,
+      "growth_28d_pct": -8.5,
+      "sales_per_txn": 10.97
+     },
+     {
+      "store_nbr": 22,
+      "city": "Machala",
+      "cluster": 8,
+      "sales_28d": 22539.2,
+      "cluster_median_28d": 64997.8,
+      "gap_vs_cluster_pct": -65.3,
+      "growth_28d_pct": 1.1,
+      "sales_per_txn": 10.76
+     },
+     {
+      "store_nbr": 21,
+      "city": "Ambato",
+      "cluster": 10,
+      "sales_28d": 14830.7,
+      "cluster_median_28d": 34138.2,
+      "gap_vs_cluster_pct": -56.6,
+      "growth_28d_pct": 5.0,
+      "sales_per_txn": 10.93
+     }
+    ]
+   }
+  },
+  {
+   "id": "E5",
+   "tool": "rank_families",
+   "args": {
+    "metric": "share_pct",
+    "n": 5
+   },
+   "result": {
+    "metric": "share_pct",
+    "ordre": "décroissant",
+    "familles": [
+     {
+      "family": "CLEANING",
+      "share_pct": 28.83,
+      "sales_28d": 651034.9,
+      "abc_class": "A"
+     },
+     {
+      "family": "DELI",
+      "share_pct": 20.1,
+      "sales_28d": 453820.0,
+      "abc_class": "A"
+     },
+     {
+      "family": "PRODUCE",
+      "share_pct": 15.58,
+      "sales_28d": 351654.8,
+      "abc_class": "A"
+     },
+     {
+      "family": "AUTOMOTIVE",
+      "share_pct": 5.95,
+      "sales_28d": 134230.3,
+      "abc_class": "A"
+     },
+     {
+      "family": "EGGS",
+      "share_pct": 5.11,
+      "sales_28d": 115471.9,
+      "abc_class": "A"
+     }
+    ]
+   }
+  },
+  {
+   "id": "E6",
+   "tool": "rank_families",
+   "args": {
+    "metric": "growth_28d_pct",
+    "n": 3,
+    "ascending": true
+   },
+   "result": {
+    "metric": "growth_28d_pct",
+    "ordre": "croissant",
+    "familles": [
+     {
+      "family": "HOME AND KITCHEN II",
+      "growth_28d_pct": -6.3,
+      "sales_28d": 14789.7,
+      "abc_class": "C"
+     },
+     {
+      "family": "PRODUCE",
+      "growth_28d_pct": -3.5,
+      "sales_28d": 351654.8,
+      "abc_class": "A"
+     },
+     {
+      "family": "HOME AND KITCHEN I",
+      "growth_28d_pct": -3.5,
+      "sales_28d": 26284.7,
+      "abc_class": "B"
+     }
+    ]
+   }
+  },
+  {
+   "id": "E7",
+   "tool": "promo_effect",
+   "args": {
+    "n": 3
+   },
+   "result": {
+    "methode": "médiane(ventes en promo / moyenne hors promo même magasin-famille-jour) - 1, sur 365 j",
+    "plus_reactives": [
+     {
+      "family": "LIQUOR,WINE,BEER",
+      "promo_uplift_pct": 33.3,
+      "promo_rows_pct_90d": 5.4,
+      "abc_class": "C"
+     },
+     {
+      "family": "PRODUCE",
+      "promo_uplift_pct": 32.0,
+      "promo_rows_pct_90d": 33.8,
+      "abc_class": "A"
+     },
+     {
+      "family": "BREAD/BAKERY",
+      "promo_uplift_pct": 31.3,
+      "promo_rows_pct_90d": 4.1,
+      "abc_class": "B"
+     }
+    ],
+    "moins_reactives": [
+     {
+      "family": "SEAFOOD",
+      "promo_uplift_pct": -5.5,
+      "promo_rows_pct_90d": 36.3,
+      "abc_class": "A"
+     },
+     {
+      "family": "DAIRY",
+      "promo_uplift_pct": -5.5,
+      "promo_rows_pct_90d": 4.6,
+      "abc_class": "B"
+     },
+     {
+      "family": "BABY CARE",
+      "promo_uplift_pct": -4.5,
+      "promo_rows_pct_90d": 5.0,
+      "abc_class": "C"
+     }
+    ]
+   }
+  },
+  {
+   "id": "E8",
+   "tool": "holiday_effects",
+   "args": {},
+   "result": {
+    "effet_historique": [
+     {
+      "holiday": "Terremoto Manabi",
+      "occurrences": 1,
+      "effect_pct": -53.0
+     },
+     {
+      "holiday": "Primer Grito de Independencia",
+      "occurrences": 2,
+      "effect_pct": -48.7
+     },
+     {
+      "holiday": "Navidad-1",
+      "occurrences": 1,
+      "effect_pct": -48.1
+     },
+     {
+      "holiday": "Dia del Trabajo",
+      "occurrences": 2,
+      "effect_pct": -46.8
+     },
+     {
+      "holiday": "Primer dia del ano",
+      "occurrences": 2,
+      "effect_pct": -46.4
+     },
+     {
+      "holiday": "Dia de Difuntos",
+      "occurrences": 1,
+      "effect_pct": -44.1
+     },
+     {
+      "holiday": "Navidad",
+      "occurrences": 1,
+      "effect_pct": -35.3
+     }
+    ],
+    "a_venir_horizon_prevision": []
+   }
+  },
+  {
+   "id": "E9",
+   "tool": "stockout_signals",
+   "args": {
+    "n": 3
+   },
+   "result": {
+    "magasins_jours_sans_vente": [],
+    "familles_magasins_sans_vente": [
+     {
+      "family": "LAWN AND GARDEN",
+      "stores_zero_sales_28d": 9,
+      "abc_class": "B"
+     },
+     {
+      "family": "PET SUPPLIES",
+      "stores_zero_sales_28d": 6,
+      "abc_class": "C"
+     },
+     {
+      "family": "BOOKS",
+      "stores_zero_sales_28d": 5,
+      "abc_class": "B"
+     }
+    ]
+   }
+  },
+  {
+   "id": "E10",
+   "tool": "model_quality",
+   "args": {},
+   "result": {
+    "fenetre_validation": [
+     "2017-07-31",
+     "2017-08-15"
+    ],
+    "horizon_jours": 16,
+    "modeles": {
+     "LightGBM (global)": {
+      "rmsle": 0.45,
+      "wape_pct": 39.53
+     },
+     "Naive saisonnier (J-21)": {
+      "rmsle": 0.65,
+      "wape_pct": 57.26
+     },
+     "Moyenne mobile 28 j": {
+      "rmsle": 0.49,
+      "wape_pct": 42.9
+     }
+    },
+    "couverture_intervalle_p10_p90_pct": 80.6,
+    "variables_les_plus_importantes_pct": {
+     "rmean_56": 74.71,
+     "rmean_28": 9.52,
+     "rmean_7": 7.71,
+     "rmean_14": 6.4,
+     "dow": 0.37,
+     "store_nbr": 0.24
+    }
+   }
+  },
+  {
+   "id": "E11",
+   "tool": "forecast_overview",
+   "args": {},
+   "result": {
+    "periode": "2017-08-16 -> 2017-08-31",
+    "prevision_totale_16j": 1295420.6,
+    "intervalle_p10_p90": [
+     1269163.9,
+     1339952.3
+    ],
+    "ventes_16_derniers_jours": 1275162.0,
+    "variation_vs_16_derniers_jours_pct": 1.6,
+    "variation_vs_annee_precedente_pct": 7.5,
+    "jour_pic": "2017-08-19",
+    "ventes_jour_pic": 98540.3
+   }
+  },
+  {
+   "id": "E12",
+   "tool": "forecast_movers",
+   "args": {
+    "level": "family",
+    "n": 4
+   },
+   "result": {
+    "niveau": "family",
+    "hausses": [
+     {
+      "family": "LINGERIE",
+      "forecast_16d": 4620.7,
+      "last_16d": 4460.7,
+      "change_vs_last_16d_pct": 3.6,
+      "uncertainty_pct": 5.4
+     },
+     {
+      "family": "CLEANING",
+      "forecast_16d": 376052.2,
+      "last_16d": 366479.2,
+      "change_vs_last_16d_pct": 2.6,
+      "uncertainty_pct": 5.5
+     },
+     {
+      "family": "BOOKS",
+      "forecast_16d": 23397.2,
+      "last_16d": 22861.8,
+      "change_vs_last_16d_pct": 2.3,
+      "uncertainty_pct": 5.7
+     },
+     {
+      "family": "PREPARED FOODS",
+      "forecast_16d": 3012.5,
+      "last_16d": 2951.8,
+      "change_vs_last_16d_pct": 2.1,
+      "uncertainty_pct": 5.3
+     }
+    ],
+    "baisses": [
+     {
+      "family": "HOME AND KITCHEN II",
+      "forecast_16d": 8199.7,
+      "last_16d": 8290.4,
+      "change_vs_last_16d_pct": -1.1,
+      "uncertainty_pct": 5.5
+     },
+     {
+      "family": "LAWN AND GARDEN",
+      "forecast_16d": 21177.0,
+      "last_16d": 21361.0,
+      "change_vs_last_16d_pct": -0.9,
+      "uncertainty_pct": 5.9
+     },
+     {
+      "family": "AUTOMOTIVE",
+      "forecast_16d": 75746.5,
+      "last_16d": 76173.4,
+      "change_vs_last_16d_pct": -0.6,
+      "uncertainty_pct": 5.4
+     },
+     {
+      "family": "GROCERY I",
+      "forecast_16d": 6676.0,
+      "last_16d": 6684.5,
+      "change_vs_last_16d_pct": -0.1,
+      "uncertainty_pct": 5.4
+     }
+    ]
+   }
+  },
+  {
+   "id": "E13",
+   "tool": "forecast_movers",
+   "args": {
+    "level": "store",
+    "n": 3
+   },
+   "result": {
+    "niveau": "store_nbr",
+    "hausses": [
+     {
+      "store_nbr": 26,
+      "forecast_16d": 21317.3,
+      "last_16d": 19434.9,
+      "change_vs_last_16d_pct": 9.7,
+      "uncertainty_pct": 14.3
+     },
+     {
+      "store_nbr": 44,
+      "forecast_16d": 20077.8,
+      "last_16d": 18576.0,
+      "change_vs_last_16d_pct": 8.1,
+      "uncertainty_pct": 14.1
+     },
+     {
+      "store_nbr": 47,
+      "forecast_16d": 19849.4,
+      "last_16d": 18367.4,
+      "change_vs_last_16d_pct": 8.1,
+      "uncertainty_pct": 14.2
+     }
+    ],
+    "baisses": [
+     {
+      "store_nbr": 50,
+      "forecast_16d": 17519.7,
+      "last_16d": 19646.0,
+      "change_vs_last_16d_pct": -10.8,
+      "uncertainty_pct": 14.5
+     },
+     {
+      "store_nbr": 6,
+      "forecast_16d": 20916.8,
+      "last_16d": 22250.5,
+      "change_vs_last_16d_pct": -6.0,
+      "uncertainty_pct": 15.0
+     },
+     {
+      "store_nbr": 23,
+      "forecast_16d": 28820.4,
+      "last_16d": 30665.6,
+      "change_vs_last_16d_pct": -6.0,
+      "uncertainty_pct": 15.1
+     }
+    ]
+   }
+  },
+  {
+   "id": "E14",
+   "tool": "uncertain_families",
+   "args": {
+    "n": 3
+   },
+   "result": {
+    "familles": [
+     {
+      "family": "LAWN AND GARDEN",
+      "abc_class": "B",
+      "forecast_16d": 21177.0,
+      "p10_16d": 20728.7,
+      "p90_16d": 21977.4,
+      "uncertainty_pct": 5.9
+     },
+     {
+      "family": "BOOKS",
+      "abc_class": "B",
+      "forecast_16d": 23397.2,
+      "p10_16d": 22903.4,
+      "p90_16d": 24229.0,
+      "uncertainty_pct": 5.7
+     },
+     {
+      "family": "GROCERY II",
+      "abc_class": "B",
+      "forecast_16d": 25441.8,
+      "p10_16d": 24918.2,
+      "p90_16d": 26347.2,
+      "uncertainty_pct": 5.6
+     }
+    ]
+   }
+  }
+ ],
+ "desc_insights": "- Ventes des 28 derniers jours : 2257805.1 (-1.3 % vs les 28 jours précédents, 7.0 % sur un an) [E1].\n- Les jours de paie font varier les ventes de 5.2 % [E1].\n- CLEANING est la première famille avec 28.83 % des ventes [E5].\n- Le magasin 31 (Manta) est à -80.2 % de la médiane de son cluster [E4].\n- La promotion a le plus d'effet sur LIQUOR,WINE,BEER (+33.3 %) [E7].",
+ "fc_insights": "- Meilleur modèle en validation : LightGBM (global) (RMSLE 0.45) [E10].\n- Prévision 16 jours : 1295420.6, soit 1.6 % vs les 16 derniers jours [E11].\n- Plus forte hausse attendue : LINGERIE (3.6 %) [E12].",
+ "recos": [
+  {
+   "titre": "Renforcer le réapprovisionnement de LINGERIE",
+   "cible": "LINGERIE",
+   "action": "Augmenter les commandes de LINGERIE pour les 16 prochains jours.",
+   "justification": "La prévision est de 4620.7 contre 4460.7 sur les 16 derniers jours, soit 3.6 %.",
+   "impact_attendu": "Moins de ruptures sur la famille en hausse.",
+   "priorite": "haute",
+   "preuves": [
+    "E12"
+   ],
+   "id": "R1"
+  },
+  {
+   "titre": "Réduire les commandes de HOME AND KITCHEN II",
+   "cible": "HOME AND KITCHEN II",
+   "action": "Ajuster à la baisse les commandes de HOME AND KITCHEN II pour éviter le surstock.",
+   "justification": "Prévision 8199.7 contre 8290.4 récemment (-1.1 %).",
+   "impact_attendu": "Moins de stock immobilisé et de pertes.",
+   "priorite": "moyenne",
+   "preuves": [
+    "E12"
+   ],
+   "id": "R2"
+  },
+  {
+   "titre": "Concentrer les promotions sur LIQUOR,WINE,BEER",
+   "cible": "LIQUOR,WINE,BEER",
+   "action": "Réallouer une partie du budget promotionnel de SEAFOOD vers LIQUOR,WINE,BEER.",
+   "justification": "L'effet promo est de 33.3 % sur LIQUOR,WINE,BEER contre -5.5 % sur SEAFOOD.",
+   "impact_attendu": "Plus de volume pour le même budget promotionnel.",
+   "priorite": "moyenne",
+   "preuves": [
+    "E7"
+   ],
+   "id": "R3"
+  },
+  {
+   "titre": "Diagnostiquer le magasin 31",
+   "cible": "Magasin 31",
+   "action": "Audit assortiment, ruptures et affluence du magasin 31 (Manta).",
+   "justification": "Ventes 28 j de 12139.1 contre une médiane de cluster de 61373.8 (-80.2 %).",
+   "impact_attendu": "Identifier les causes du retard sur les magasins comparables.",
+   "priorite": "haute",
+   "preuves": [
+    "E4"
+   ],
+   "id": "R4"
+  }
+ ],
+ "review": [
+  {
+   "id": "R1",
+   "checks": {
+    "ok": true,
+    "numbers_checked": 3,
+    "unsupported_numbers": [],
+    "unknown_evidence": [],
+    "replay_ok": true,
+    "no_evidence": false
+   },
+   "verdict": "accepte",
+   "commentaire": ""
+  },
+  {
+   "id": "R2",
+   "checks": {
+    "ok": true,
+    "numbers_checked": 3,
+    "unsupported_numbers": [],
+    "unknown_evidence": [],
+    "replay_ok": true,
+    "no_evidence": false
+   },
+   "verdict": "accepte",
+   "commentaire": ""
+  },
+  {
+   "id": "R3",
+   "checks": {
+    "ok": true,
+    "numbers_checked": 2,
+    "unsupported_numbers": [],
+    "unknown_evidence": [],
+    "replay_ok": true,
+    "no_evidence": false
+   },
+   "verdict": "accepte",
+   "commentaire": ""
+  },
+  {
+   "id": "R4",
+   "checks": {
+    "ok": true,
+    "numbers_checked": 4,
+    "unsupported_numbers": [],
+    "unknown_evidence": [],
+    "replay_ok": true,
+    "no_evidence": false
+   },
+   "verdict": "accepte",
+   "commentaire": ""
+  }
+ ],
+ "feedback": "",
+ "iteration": 1,
+ "executive_summary": "Sur les 28 derniers jours (jusqu'au 2017-08-15), les ventes évoluent de -1.3 % par rapport à la période précédente. Le système a produit 4 recommandations, dont 4 validées par l'agent critique.\n\n1. Renforcer le réapprovisionnement de LINGERIE\n2. Réduire les commandes de HOME AND KITCHEN II\n3. Concentrer les promotions sur LIQUOR,WINE,BEER",
+ "trace": [
+  {
+   "agent": "Analyste descriptif",
+   "message": "9 outils appelés (E1–E9)",
+   "seconds": 0.1
+  },
+  {
+   "agent": "Agent prévision",
+   "message": "5 outils appelés",
+   "seconds": 0.0
+  },
+  {
+   "agent": "Recommandeur",
+   "message": "tour 1 : 4 recommandations",
+   "seconds": 0.0
+  },
+  {
+   "agent": "Critique",
+   "message": "4/4 acceptées, 0 à revoir",
+   "seconds": 0.0
+  },
+  {
+   "agent": "Rapporteur",
+   "message": "synthèse rédigée",
+   "seconds": 0.0
+  }
+ ],
+ "usage": {
+  "calls": 0,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "cost_usd": 0.0,
+  "model": "hors-ligne (règles)"
+ },
+ "generated_at": "2026-11-18 21:55",
+ "duration_s": 0.1,
+ "data_meta": {
+  "last_date": "2017-08-15",
+  "first_date": "2016-01-01",
+  "n_stores": 54,
+  "n_families": 33,
+  "n_series": 1782,
+  "sales_28d": 2257805.1,
+  "sales_prev_28d": 2287368.5,
+  "growth_28d_pct": -1.3,
+  "yoy_pct": 7.0,
+  "avg_daily_sales_28d": 80635.9,
+  "transactions_28d": 210579,
+  "payday_effect_pct": 5.2,
+  "oil_sales_weekly_corr": -0.199,
+  "promo_rows_pct_28d": 10.6,
+  "source": "synthetic",
+  "forecast_start": "2017-08-16",
+  "forecast_end": "2017-08-31",
+  "built_at": "2026-11-18T21:51:23",
+  "build_seconds": 41
+ }
+}

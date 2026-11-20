@@ -1,0 +1,86 @@
+{
+  "validation_window": [
+    "2017-07-31",
+    "2017-08-15"
+  ],
+  "horizon_days": 16,
+  "models": {
+    "LightGBM (global)": {
+      "rmsle": 0.4351,
+      "wape_pct": 15.05
+    },
+    "Naive saisonnier (J-21)": {
+      "rmsle": 0.633,
+      "wape_pct": 19.85
+    },
+    "Moyenne mobile 28 j": {
+      "rmsle": 0.5502,
+      "wape_pct": 20.39
+    }
+  },
+  "interval_coverage_p10_p90_pct": 81.4,
+  "best_iteration": 230,
+  "train_rows": 746658,
+  "features": [
+    "store_nbr",
+    "family_code",
+    "type_code",
+    "cluster",
+    "dow",
+    "dom",
+    "month",
+    "payday",
+    "is_holiday",
+    "is_national_holiday",
+    "onpromotion",
+    "oil",
+    "lag_16",
+    "lag_21",
+    "lag_28",
+    "lag_35",
+    "lag_42",
+    "lag_364",
+    "rmean_7",
+    "rmean_14",
+    "rmean_28",
+    "rmean_56",
+    "rstd_28",
+    "dow_mean_4",
+    "promo_rmean_28"
+  ],
+  "bias_calibration_by_family": {
+    "AUTOMOTIVE": 1.183,
+    "BABY CARE": 1.287,
+    "BEAUTY": 1.12,
+    "BEVERAGES": 0.999,
+    "BOOKS": 0.8,
+    "BREAD/BAKERY": 0.99,
+    "CELEBRATION": 1.075,
+    "CLEANING": 0.989,
+    "DAIRY": 0.926,
+    "DELI": 0.946,
+    "EGGS": 1.024,
+    "FROZEN FOODS": 1.011,
+    "GROCERY I": 0.999,
+    "GROCERY II": 1.006,
+    "HARDWARE": 1.291,
+    "HOME AND KITCHEN I": 1.22,
+    "HOME AND KITCHEN II": 1.128,
+    "HOME APPLIANCES": 0.8,
+    "HOME CARE": 0.908,
+    "LADIESWEAR": 0.919,
+    "LAWN AND GARDEN": 1.005,
+    "LINGERIE": 1.259,
+    "LIQUOR,WINE,BEER": 1.098,
+    "MAGAZINES": 1.298,
+    "MEATS": 1.018,
+    "PERSONAL CARE": 1.03,
+    "PET SUPPLIES": 1.034,
+    "PLAYERS AND ELECTRONICS": 1.087,
+    "POULTRY": 0.993,
+    "PREPARED FOODS": 1.022,
+    "PRODUCE": 0.949,
+    "SCHOOL AND OFFICE SUPPLIES": 1.3,
+    "SEAFOOD": 1.073
+  }
+}

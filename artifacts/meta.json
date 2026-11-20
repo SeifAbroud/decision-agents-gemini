@@ -1,0 +1,21 @@
+{
+  "last_date": "2017-08-15",
+  "first_date": "2013-01-01",
+  "n_stores": 54,
+  "n_families": 33,
+  "n_series": 1782,
+  "sales_28d": 23436868.0,
+  "sales_prev_28d": 23803458.0,
+  "growth_28d_pct": -1.5,
+  "yoy_pct": 14.5,
+  "avg_daily_sales_28d": 837031.0,
+  "transactions_28d": 2482343,
+  "payday_effect_pct": 6.7,
+  "oil_sales_weekly_corr": -0.756,
+  "promo_rows_pct_28d": 42.6,
+  "source": "kaggle",
+  "forecast_start": "2017-08-16",
+  "forecast_end": "2017-08-31",
+  "built_at": "2026-11-20T19:59:09",
+  "build_seconds": 101
+}
