@@ -271,7 +271,7 @@ def reporter(state: State) -> State:
                 f"{len(ok)} validées par l'agent critique.\n\n" +
                 "\n".join(f"{i}. {r['titre']}" for i, r in enumerate(ok[:3], 1)))
     usage = {"calls": _USAGE.calls, "input_tokens": _USAGE.input_tokens, "output_tokens": _USAGE.output_tokens,
-             "cost_usd": _USAGE.cost_usd(), "model": llm.label().replace("`", "") if state["mode"] == "llm" else "hors-ligne (règles)"}
+             "cost_usd": _USAGE.cost_usd(), "model": (f"Gemini {llm.current_model()}" if llm.provider() == "gemini" else llm.label().replace("`", "")) if state["mode"] == "llm" else "hors-ligne (règles)"}
     return {"executive_summary": text, "usage": usage, "trace": _log(state, "Rapporteur", "synthèse rédigée", t0)}
 
 
