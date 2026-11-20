@@ -1,11 +1,4 @@
-"""Accès au LLM : Google Gemini (gratuit) ou Claude (Anthropic).
 
-Choix automatique selon la clé présente dans les secrets :
-  - GEMINI_API_KEY     -> Gemini via son endpoint compatible OpenAI (modèle par défaut : gemini-flash-latest)
-  - ANTHROPIC_API_KEY  -> Claude Haiku 5.5
-On peut forcer avec LLM_PROVIDER = "gemini" | "claude".
-Sans aucune clé, le système passe en mode hors-ligne (règles déterministes).
-"""
 from __future__ import annotations
 
 import json
@@ -81,23 +74,59 @@ def client():
     return _clients[p]
 
 
+# Le free tier Gemini donne un quota PAR MODÈLE (ex. 5 requêtes/min, 20 requêtes/jour).
+# Quand le quota du jour d'un modèle est épuisé, on passe automatiquement au suivant.
+GEMINI_FALLBACKS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite",
+                    "gemini-flash-latest", "gemini-flash-lite-latest"]
+_exhausted: set = set()
+
+
+def gemini_models() -> list[str]:
+    first = os.getenv("GEMINI_MODEL", DEFAULTS["gemini"])
+    chain = [first] + [m for m in GEMINI_FALLBACKS if m != first]
+    return [m for m in chain if m not in _exhausted] or [first]
+
+
 def gemini_chat(messages: list, max_tokens: int, tools=None):
-    """Appel Gemini avec réessais (le free tier limite le nombre de requêtes par minute)."""
-    kw = dict(model=model_name(), messages=messages, max_tokens=max_tokens, reasoning_effort="low")
-    if tools:
-        kw["tools"] = tools
-    for attempt in range(4):
-        try:
-            return client().chat.completions.create(**kw)
-        except Exception as e:  # noqa: BLE001
-            msg = str(e)
-            if "reasoning" in msg.lower() and "reasoning_effort" in kw:
-                kw.pop("reasoning_effort")
-                continue
-            if ("429" in msg or "RESOURCE_EXHAUSTED" in msg or "503" in msg) and attempt < 3:
-                time.sleep(15 * (attempt + 1))
-                continue
-            raise
+    """Appel Gemini : attend si limite par minute, change de modèle si quota du jour épuisé."""
+    global _last_model
+    last_err = None
+    for model in gemini_models():
+        kw = dict(model=model, messages=messages, max_tokens=max_tokens, reasoning_effort="low")
+        if tools:
+            kw["tools"] = tools
+        for attempt in range(3):
+            try:
+                resp = client().chat.completions.create(**kw)
+                _last_model = model
+                return resp
+            except Exception as e:  # noqa: BLE001
+                last_err, msg = e, str(e)
+                low = msg.lower()
+                if "reasoning" in low and "reasoning_effort" in kw:
+                    kw.pop("reasoning_effort")
+                    continue
+                if "404" in msg or "not found" in low or "not supported" in low:
+                    _exhausted.add(model)
+                    break  # modèle indisponible -> suivant
+                if "429" in msg or "resource_exhausted" in low or "quota" in low:
+                    if "perday" in low.replace(" ", "").replace("_", "") or "per day" in low or attempt == 2:
+                        _exhausted.add(model)
+                        break  # quota du jour -> modèle suivant
+                    time.sleep(13 * (attempt + 1))  # limite par minute -> on attend
+                    continue
+                if "503" in msg or "overloaded" in low or "unavailable" in low:
+                    time.sleep(5)
+                    continue
+                raise
+    raise RuntimeError(f"Quota Gemini épuisé sur tous les modèles gratuits ({last_err})")
+
+
+_last_model = None
+
+
+def current_model() -> str:
+    return _last_model or model_name()
 
 
 def ask(system: str, user: str, usage: Usage | None = None, agent: str = "", max_tokens: int = 2000) -> str:
